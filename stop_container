@@ -1,0 +1,11 @@
+#!/bin/bash
+set -eu
+
+echo "Stopping old student application..."
+
+if docker container inspect student-app >/dev/null 2>&1; then
+    docker rm -f student-app
+    echo "Old container removed."
+else
+    echo "No old container found."
+fi
