@@ -1,0 +1,14 @@
+#!/bin/bash
+set -eu
+
+echo "Starting Student Result Predictor..."
+
+cd /home/ubuntu/student-result-predictor
+
+docker run -d \
+    --name student-app \
+    --restart unless-stopped \
+    -p 80:5000 \
+    student-app
+
+echo "Application started successfully."
